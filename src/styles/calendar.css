@@ -1,0 +1,121 @@
+.calendar-wrapper {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.calendar-wrapper h2 {
+  margin-bottom: 1.5rem;
+}
+
+.calendars-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.calendar-item {
+  background-color: #0f0f1e;
+  border: 2px solid #646cff;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+/* Personalizar estilos de react-calendar */
+.calendar-item .react-calendar {
+  background-color: #0f0f1e;
+  color: #fff;
+  border: none;
+  font-family: Inter, sans-serif;
+}
+
+.calendar-item .react-calendar__month-view__days__day {
+  color: #fff;
+}
+
+.calendar-item .react-calendar__month-view__days__day--weekend {
+  color: #fff;
+}
+
+.calendar-item .react-calendar__tile {
+  color: #fff;
+  background-color: transparent;
+  border-radius: 4px;
+}
+
+.calendar-item .react-calendar__tile:hover {
+  background-color: #646cff;
+}
+
+.calendar-item .react-calendar__tile--active {
+  background-color: #646cff;
+  color: #fff;
+}
+
+.calendar-item .react-calendar__navigation {
+  margin-bottom: 1rem;
+}
+
+.calendar-item .react-calendar__navigation__label {
+  color: #646cff;
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+.calendar-item .react-calendar__navigation button {
+  color: #646cff;
+  min-width: auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.calendar-item .react-calendar__navigation button:hover {
+  background-color: rgba(100, 108, 255, 0.2);
+  border-radius: 4px;
+}
+
+.calendar-item .react-calendar__month-view__weekdays__weekday {
+  color: #646cff;
+  font-weight: 700;
+}
+
+.tile-icon {
+  display: block;
+  font-size: 1.2em;
+  margin-top: 0.25rem;
+}
+
+.tile-marked-red {
+  background-color: #ff4444 !important;
+  color: #fff !important;
+}
+
+.tile-marked-green {
+  background-color: #44ff44 !important;
+  color: #000 !important;
+}
+
+.tile-marked-blue {
+  background-color: #646cff !important;
+  color: #fff !important;
+}
+
+.tile-marked-yellow {
+  background-color: #ffff00 !important;
+  color: #000 !important;
+}
+
+.tile-label {
+  display: block;
+  font-size: 0.7em;
+  margin-top: 0.25rem;
+  font-weight: 600;
+}
+
+.calendar-label {
+  margin-top: 1rem;
+  font-size: 1.1em;
+  color: #646cff;
+  font-weight: 600;
+}

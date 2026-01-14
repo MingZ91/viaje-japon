@@ -1,0 +1,222 @@
+.expenses-wrapper {
+  margin-top: 2rem;
+  padding: 2rem;
+  background-color: #0f0f1e;
+  border-radius: 8px;
+}
+
+.expenses-wrapper h2 {
+  margin-bottom: 1.5rem;
+  color: #646cff;
+  text-align: center;
+  font-size: 1.8em;
+}
+
+.summary-info {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: #1a1a2e;
+  border-radius: 8px;
+  border: 2px solid #646cff;
+}
+
+.summary-info p {
+  margin: 0;
+  font-size: 1.1em;
+  color: #fff;
+}
+
+.summary-info strong {
+  color: #646cff;
+}
+
+.hotel-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.hotel-button {
+  padding: 0.75em 1.5em;
+  background-color: #1a1a2e;
+  border: 2px solid #646cff;
+  color: #646cff;
+  font-weight: 600;
+  font-size: 1em;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hotel-button:hover {
+  background-color: #646cff;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.hotel-button.active {
+  background-color: #646cff;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(100, 108, 255, 0.5);
+}
+
+.hotels-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.hotel-card {
+  background-color: #1a1a2e;
+  border: 2px solid #646cff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(100, 108, 255, 0.2);
+}
+
+.hotel-card h3 {
+  margin: 0 0 1.5rem 0;
+  color: #646cff;
+  font-size: 1.3em;
+  text-align: center;
+  border-bottom: 2px solid #646cff;
+  padding-bottom: 0.75rem;
+}
+
+.hotel-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: #0f0f1e;
+  border-radius: 6px;
+  border: 1px solid #555;
+}
+
+.info-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.info-field label {
+  font-size: 0.85em;
+  color: #646cff;
+  font-weight: 600;
+}
+
+.info-input {
+  padding: 0.5rem;
+  background-color: #1a1a2e;
+  border: 1px solid #646cff;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 0.95em;
+}
+
+.info-input:disabled {
+  background-color: #0f0f1e;
+  border-color: #555;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.info-input:focus {
+  outline: none;
+  border-color: #7b82ff;
+  box-shadow: 0 0 5px rgba(100, 108, 255, 0.5);
+}
+
+.info-value {
+  padding: 0.5rem;
+  background-color: #1a1a2e;
+  border-radius: 4px;
+  color: #44ff44;
+  font-weight: 600;
+  text-align: center;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  color: #646cff;
+  font-size: 0.9em;
+}
+
+.paid-header {
+  min-width: 20px;
+  text-align: center;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.person-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem;
+  background-color: #0f0f1e;
+  border-radius: 4px;
+  border: 1px solid #555;
+}
+
+.person-name {
+  min-width: 100px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.amount-input {
+  width: 100px;
+  padding: 0.5rem;
+  background-color: #1a1a2e;
+  border: 1px solid #646cff;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 0.95em;
+  text-align: right;
+}
+
+.amount-input:focus {
+  outline: none;
+  border-color: #7b82ff;
+  box-shadow: 0 0 5px rgba(100, 108, 255, 0.5);
+}
+
+.paid-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #646cff;
+}
+
+.card-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid #646cff;
+  font-weight: 700;
+  color: #44ff44;
+  font-size: 1.1em;
+}
+
+.card-total .amount {
+  color: #44ff44;
+}
