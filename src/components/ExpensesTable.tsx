@@ -10,11 +10,11 @@ function ExpensesTable() {
   })
 
   const [expenses, setExpenses] = useState({
-    Gemma: { tokyo1: false, osaka: false, kyoto: false, tokyo2: false },
-    Nuria: { tokyo1: false, osaka: false, kyoto: false, tokyo2: false },
-    Nina: { tokyo1: false, osaka: false, kyoto: false, tokyo2: false },
-    Ming: { tokyo1: false, osaka: false, kyoto: false, tokyo2: false },
-    Dario: { tokyo1: false, osaka: false, kyoto: false, tokyo2: false },
+    Gemma: { tokyo1: false, osaka: true, kyoto: true, tokyo2: true },
+    Nuria: { tokyo1: false, osaka: true, kyoto: true, tokyo2: false },
+    Nina: { tokyo1: false, osaka: true, kyoto: true, tokyo2: true },
+    Ming: { tokyo1: false, osaka: true, kyoto: true, tokyo2: true },
+    Dario: { tokyo1: false, osaka: true, kyoto: true, tokyo2: true },
   })
 
   const [selectedHotel, setSelectedHotel] = useState('tokyo1')
@@ -51,13 +51,13 @@ function ExpensesTable() {
     const hotel = hotelPrices[hotelKey as keyof typeof hotelPrices]
     const paidCount = people.filter((p) => expenses[p as keyof typeof expenses][hotelKey as keyof typeof expenses[keyof typeof expenses]]).length
     if (paidCount === 0) return 0
-    return hotel.total / paidCount
+    return hotel.total / 5
   }
 
   const getPricePerNight = (hotelKey: string) => {
     const hotel = hotelPrices[hotelKey as keyof typeof hotelPrices]
     if (hotel.nights === 0) return 0
-    return hotel.total / hotel.nights
+    return hotel.total / 5 / hotel.nights
   }
 
   const getTotalExpenses = () => {
