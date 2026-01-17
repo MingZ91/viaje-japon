@@ -1,11 +1,18 @@
 // components/Navbar.tsx
 import { useState } from 'react'
 import TravelExpenses from './TravelExpenses'
+import KyotoList from './KyotoList'
+import OsakaList from './OsakaList'
+import TokyoList from './TokyoList'
 import '../styles/navbar.css'
 
 export default function Navbar() {
-  const [selectedExpense, setSelectedExpense] = useState('hotels')
+  const [selectedExpense, setSelectedExpense] = useState<string | null>(null)
   const [openDropdown, setOpenDropdown] = useState<'city' | 'expense' | null>(null)
+
+  const [showKyoto, setShowKyoto] = useState(false)
+  const [showOsaka, setShowOsaka] = useState(false)
+  const [showTokyo, setShowTokyo] = useState(false)
 
   const expenseOptions = [
     { value: 'hotels', label: 'Hoteles' },
@@ -15,10 +22,33 @@ export default function Navbar() {
     { value: 'others', label: 'Otros' },
   ]
 
+  const cityOptions = ['Kyoto', 'Tokyo', 'Osaka']
+
+  const handleKyotoClick = () => {
+    setShowKyoto(true)
+    setShowOsaka(false)
+    setShowTokyo(false)
+    setSelectedExpense(null)
+  }
+
+  const handleOsakaClick = () => {
+    setShowKyoto(false)
+    setShowOsaka(true)
+    setShowTokyo(false)
+    setSelectedExpense(null)
+  }
+
+  const handleTokyoClick = () => {
+    setShowKyoto(false)
+    setShowOsaka(false)
+    setShowTokyo(true)
+    setSelectedExpense(null)
+  }
+
   return (
     <div>
       <div className="navbar">
-        {/* Contenedor para Ciudades */}
+        {/* Botón Ciudades */}
         <div className="button-container">
           <button
             className="hotel-button"
@@ -31,11 +61,14 @@ export default function Navbar() {
 
           {openDropdown === 'city' && (
             <div className="dropdown">
-              {['Kyoto', 'Tokyo', 'Osaka'].map((city) => (
+              {cityOptions.map((city) => (
                 <button
                   key={city}
                   onClick={() => {
                     setOpenDropdown(null)
+                    if (city === 'Kyoto') handleKyotoClick()
+                    else if (city === 'Osaka') handleOsakaClick()
+                    else if (city === 'Tokyo') handleTokyoClick()
                   }}
                 >
                   {city}
@@ -45,7 +78,7 @@ export default function Navbar() {
           )}
         </div>
 
-        {/* Contenedor para Gastos */}
+        {/* Botón Gastos */}
         <div className="button-container">
           <button
             className="hotel-button"
@@ -64,6 +97,9 @@ export default function Navbar() {
                   onClick={() => {
                     setSelectedExpense(option.value)
                     setOpenDropdown(null)
+                    setShowKyoto(false)
+                    setShowOsaka(false)
+                    setShowTokyo(false)
                   }}
                 >
                   {option.label}
@@ -73,12 +109,16 @@ export default function Navbar() {
           )}
         </div>
 
-        {/* Botón de Maps */}
+        {/* Botón Maps */}
         <div className="button-container">
           <button
             className="hotel-button"
             onClick={() => {
-              setOpenDropdown(null) // cierra otros dropdowns
+              setOpenDropdown(null)
+              setShowKyoto(false)
+              setShowOsaka(false)
+              setShowTokyo(false)
+              setSelectedExpense(null)
               window.open(
                 'https://www.google.com/maps/@35.1926925,136.3223411,8z/data=!3m1!5s0x60188c020580ff31:0xddafbdb58d6de596!4m12!1m8!3m7!1s0x60188c020f7e92d1:0xb61cf551ada0f90d!2sKikanbo!8m2!3d35.6936985!4d139.7724063!15sCg1raWthbmJvIHJhbWVuIgOIAQFaDyINa2lrYW5ibyByYW1lbpIBEHJhbWVuX3Jlc3RhdXJhbnTgAQA!16s%2Fg%2F11f_p2kslz!11m2!2se3Swgj_Mc3lu_PWBe-E7G1gvjOx13A!3e3?authuser=2&entry=ttu',
                 '_blank'
@@ -90,9 +130,12 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Card del gasto seleccionado */}
+      {/* Renderizado condicional */}
       <div style={{ marginTop: '2rem' }}>
-        <TravelExpenses selectedExpense={selectedExpense} />
+        {selectedExpense && <TravelExpenses selectedExpense={selectedExpense} />}
+        {showKyoto && <KyotoList />}
+        {showOsaka && <OsakaList />}
+        {showTokyo && <TokyoList />}
       </div>
     </div>
   )
