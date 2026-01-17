@@ -30,36 +30,47 @@ function HotelsExpenses() {
 
   const people = 5
 
-const pricePerNight = (total: number, nights: number): number =>
-  nights === 0 ? 0 : total / people / nights
+  const pricePerNight = (total: number, nights: number): number =>
+    nights === 0 ? 0 : total / people / nights
 
-const pricePerPerson = (total: number): number => total / people
-
+  const pricePerPerson = (total: number): number => total / people
 
   return (
     <div className="expenses-section">
-      {/* Eliminamos el botón y mostramos directamente los hoteles */}
       <div className="hotel-cards">
         {hotels.map((hotel) => (
           <div
             key={hotel.label}
             className="hotel-card-selector active"
-            onClick={() => window.open(hotel.url, "_blank")}
-            style={{ cursor: "pointer" }} // Cambia el cursor al pasar por encima
           >
             <h4>{hotel.label}</h4>
+
             <p>
               €{hotel.total.toFixed(2)} · {hotel.nights} noches
             </p>
+
             <small>
               €{pricePerNight(hotel.total, hotel.nights).toFixed(2)} / noche /
               persona
             </small>
+
             <div className="card-divider" />
+
             <span>
               <strong>Precio por persona:</strong> €
               {pricePerPerson(hotel.total).toFixed(2)}
             </span>
+
+            {/* 🔗 Enlace al hotel */}
+            <div className="hotel-link">
+              <a
+                href={hotel.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ver alojamiento
+              </a>
+            </div>
           </div>
         ))}
       </div>

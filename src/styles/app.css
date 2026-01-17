@@ -1,0 +1,78 @@
+/* Forzar dark mode */
+:root {
+  /* Fondo principal - gris oscuro suave */
+  --bg: #1e1e2f;
+
+  /* Texto principal - casi blanco pero suave para no cansar la vista */
+  --text: #e0e0e0;
+
+  /* Color principal / botones / enlaces destacados */
+  --primary: #4fa1ff;
+
+  /* Hover / resaltado de botones y enlaces */
+  --secondary: #7ab8ff;
+
+  /* Cards / contenedores */
+  --card-bg: #2a2a3e;
+  --card-border: #4fa1ff;
+  --card-text: #e0e0e0;
+  --card-small-text: #b0b0b0;
+  --card-hover: #3c3c58;
+
+  /* Inputs / formularios */
+  --input-bg: #2a2a3e;
+  --input-text: #e0e0e0;
+  --input-border: #4fa1ff;
+
+  /* Bordes, separadores, líneas suaves */
+  --border-light: #555571;
+
+  /* Links dentro de cards o texto */
+  --link-color: #4fa1ff;
+  --link-hover: #7ab8ff;
+
+  /* Sombras sutiles para profundidad */
+  --shadow: rgba(0, 0, 0, 0.3);
+}
+
+
+/* Aplicar variables globales */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background 0.2s, color 0.2s;
+}
+/* Contenedor raíz de la app */
+#root {
+  margin: auto;          /* centra horizontalmente */
+  padding: 2rem;           /* espacio interno */
+  text-align: center;      /* centra texto dentro */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.buttons {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.dropdown button {
+  background-color: #646cff;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  width: 100px;
+  padding: 0.5rem 1rem;
+}
