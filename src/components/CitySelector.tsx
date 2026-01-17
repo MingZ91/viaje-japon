@@ -3,11 +3,11 @@ import { useState } from 'react'
 function CitySelector() {
   const [showCities, setShowCities] = useState(false)
   const [showModal, setShowModal] = useState(false)
-  const [selectedCity, setSelectedCity] = useState(null)
+  const [selectedCity, setSelectedCity] = useState<string | null>(null)
 
-  const cities = ['Kyoto', 'Tokyo', 'Osaka']
+  const cities: string[] = ['Kyoto', 'Tokyo', 'Osaka']
 
-  const handleCityClick = (city) => {
+  const handleCityClick = (city: string) => {
     setSelectedCity(city)
     setShowModal(true)
     setShowCities(false)

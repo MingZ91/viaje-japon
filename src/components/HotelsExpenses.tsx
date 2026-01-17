@@ -30,10 +30,11 @@ function HotelsExpenses() {
 
   const people = 5
 
-  const pricePerNight = (total, nights) =>
-    nights === 0 ? 0 : total / people / nights
+const pricePerNight = (total: number, nights: number): number =>
+  nights === 0 ? 0 : total / people / nights
 
-  const pricePerPerson = (total) => total / people
+const pricePerPerson = (total: number): number => total / people
+
 
   return (
     <div className="expenses-section">

@@ -1,5 +1,4 @@
 // src/components/ShoppingExpenses.js
-import React from 'react'
 import "../styles/expenses.css"
 
 function ShoppingExpenses() {
