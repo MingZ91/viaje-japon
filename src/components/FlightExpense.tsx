@@ -20,9 +20,7 @@ function FlightsExpenses() {
       {showFlights && (
         <div className="flight-card">
           <div className="hotel-card-selector active">
-            <h4>Vuelos (ida y vuelta)</h4>
-
-            <p>
+              <p>
               Total grupo: €{totalFlightCost.toFixed(2)}
             </p>
 

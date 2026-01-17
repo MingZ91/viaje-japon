@@ -20,52 +20,39 @@ function FlightsExpenses() {
 }
 
 function ShoppingExpenses() {
-  const [showShopping, setShowShopping] = useState(true)
-
   return (
-    <div>
-      <button
-        className="flights-toggle-button"
-        onClick={() => setShowShopping(!showShopping)}
-        style={{ marginTop: "20px" }}
-      >
-        Compras {showShopping ? "▲" : "▼"}
-      </button>
-
-      {showShopping && (
-        <div className="expenses-section">
-          <div className="hotel-card-selector active">
-            <h4>Compras / Souvenirs</h4>
-            <p>No hay gastos registrados por ahora.</p>
-          </div>
-        </div>
-      )}
+    <div className="expenses-section">
+      <div className="hotel-card-selector active">
+        <h4>Compras / Souvenirs</h4>
+        <p>No hay gastos registrados por ahora.</p>
+      </div>
     </div>
   )
 }
 
 function TravelExpenses() {
-  const [showFlights, setShowFlights] = useState(true) // Vuelos por defecto visible
+  const [selectedExpense, setSelectedExpense] = useState<string>('hotels')
 
   return (
     <div className="expenses-section">
-      {/* Hoteles */}
-      <HotelsExpenses />
-
-      {/* Botón toggle para vuelos */}
-      <button
-        className="flights-toggle-button"
-        onClick={() => setShowFlights((s) => !s)}
-        style={{ marginTop: "20px" }}
+      {/* Dropdown para seleccionar categoría */}
+      <select
+        className="expense-dropdown"
+        value={selectedExpense}
+        onChange={(e) => setSelectedExpense(e.target.value)}
+        style={{ marginBottom: '20px', padding: '8px' }}
       >
-        Vuelos {showFlights ? "▲" : "▼"}
-      </button>
+        <option value="hotels">Hoteles</option>
+        <option value="flights">Vuelos</option>
+        <option value="shopping">Compras</option>
+        <option value="food">Comida</option>
+        <option value="tickets">Tickets</option>
+      </select>
 
-      {/* Sección vuelos */}
-      {showFlights && <FlightsExpenses />}
-
-      {/* Sección compras */}
-      <ShoppingExpenses />
+      {/* Renderizado condicional de la sección */}
+      {selectedExpense === 'hotels' && <HotelsExpenses />}
+      {selectedExpense === 'flights' && <FlightsExpenses />}
+      {selectedExpense === 'shopping' && <ShoppingExpenses />}
     </div>
   )
 }
@@ -78,7 +65,7 @@ function Home() {
       <h1>Viaje a Japón</h1>
       <div className="buttons">
         <CitySelector />
-        <button onClick={() => setShowExpenses(!showExpenses)}>Gastos</button>
+        <button onClick={() => setShowExpenses((s) => !s)}>Gastos</button>
       </div>
 
       {/* Sección de gastos */}

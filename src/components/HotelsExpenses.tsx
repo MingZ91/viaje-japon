@@ -1,9 +1,6 @@
-import { useState } from 'react'
 import "../styles/expenses.css"
 
 function HotelsExpenses() {
-  const [showHotels, setShowHotels] = useState(false)
-
   const hotels = [
     {
       label: 'Tokyo 1 - Shinjuku YC Hostel-SJ0399',
@@ -40,43 +37,31 @@ function HotelsExpenses() {
 
   return (
     <div className="expenses-section">
-      <button
-        className="hotels-toggle-button"
-        onClick={() => setShowHotels((s) => !s)}
-      >
-        Hoteles {showHotels}
-      </button>
-
-      {showHotels && (
-        <div className="hotel-cards">
-          {hotels.map((hotel) => (
-            <div
-              key={hotel.label}
-              className="hotel-card-selector active"
-              onClick={() => window.open(hotel.url, "_blank")}
-              style={{ cursor: "pointer" }} // Cambia el cursor al pasar por encima
-            >
-              <h4>{hotel.label}</h4>
-
-              <p>
-                €{hotel.total.toFixed(2)} · {hotel.nights} noches
-              </p>
-
-              <small>
-                €{pricePerNight(hotel.total, hotel.nights).toFixed(2)} / noche /
-                persona
-              </small>
-
-              <div className="card-divider" />
-
-              <span>
-                <strong>Precio por persona:</strong> €
-                {pricePerPerson(hotel.total).toFixed(2)}
-              </span>
-            </div>
-          ))}
-        </div>
-      )}
+      {/* Eliminamos el botón y mostramos directamente los hoteles */}
+      <div className="hotel-cards">
+        {hotels.map((hotel) => (
+          <div
+            key={hotel.label}
+            className="hotel-card-selector active"
+            onClick={() => window.open(hotel.url, "_blank")}
+            style={{ cursor: "pointer" }} // Cambia el cursor al pasar por encima
+          >
+            <h4>{hotel.label}</h4>
+            <p>
+              €{hotel.total.toFixed(2)} · {hotel.nights} noches
+            </p>
+            <small>
+              €{pricePerNight(hotel.total, hotel.nights).toFixed(2)} / noche /
+              persona
+            </small>
+            <div className="card-divider" />
+            <span>
+              <strong>Precio por persona:</strong> €
+              {pricePerPerson(hotel.total).toFixed(2)}
+            </span>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
