@@ -220,3 +220,40 @@
 .card-total .amount {
   color: #44ff44;
 }
+.hotel-dropdown {
+  margin: 1rem 0;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.hotel-select {
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+.hotel-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.hotel-card-selector {
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: 0.2s;
+  background: #fff;
+}
+
+.hotel-card-selector:hover {
+  border-color: #999;
+}
+
+.hotel-card-selector.active {
+  border-color: #4f46e5;
+  background: #eef2ff;
+}

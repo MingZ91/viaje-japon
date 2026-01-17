@@ -2,8 +2,16 @@ import { useState } from 'react'
 
 function CitySelector() {
   const [showCities, setShowCities] = useState(false)
+  const [showModal, setShowModal] = useState(false)
+  const [selectedCity, setSelectedCity] = useState(null)
 
   const cities = ['Kyoto', 'Tokyo', 'Osaka']
+
+  const handleCityClick = (city) => {
+    setSelectedCity(city)
+    setShowModal(true)
+    setShowCities(false)
+  }
 
   return (
     <div className="city-selector">
@@ -21,11 +29,27 @@ function CitySelector() {
             <button
               key={city}
               role="menuitem"
-              onClick={() => console.log(city)}
+              onClick={() => handleCityClick(city)}
             >
               {city}
             </button>
           ))}
+        </div>
+      )}
+
+      {/* MODAL PLACEHOLDER */}
+      {showModal && (
+        <div className="modal-overlay" onClick={() => setShowModal(false)}>
+          <div
+            className="modal"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h3>{selectedCity}</h3>
+            <p>🚧 Por ahora esta opción no hace nada.</p>
+            <button onClick={() => setShowModal(false)}>
+              Cerrar
+            </button>
+          </div>
         </div>
       )}
     </div>
