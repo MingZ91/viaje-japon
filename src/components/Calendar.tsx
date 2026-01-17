@@ -86,25 +86,24 @@ function Calendar() {
     <div className="calendar-wrapper">
       <div className="calendars-container">
         <div className="calendar-item">
-            <ReactCalendar
-        minDate={new Date(2026, 1, 1)}
-        maxDate={new Date(2026, 2, 31)}
-        value={selectedDate}
-        onChange={(value, _event) => {
-            // value puede ser null
-            if (!value) return;
+           <ReactCalendar
+  minDate={new Date(2026, 1, 1)}
+  maxDate={new Date(2026, 12, 31)}
+  value={selectedDate}
+  defaultActiveStartDate={new Date(2026, 1, 1)}
+  onChange={(value, _event) => {
+    if (!value) return;
+    if (value instanceof Date) {
+      setSelectedDate(value);
+    } else if (Array.isArray(value) && value.length > 0) {
+      setSelectedDate(value[0]);
+    }
+  }}
+  tileContent={getTileContent}
+  tileClassName={getTileClassName}
+  showNeighboringMonth={false}
+/>
 
-            // value puede ser Date o Date[]
-            if (value instanceof Date) {
-            setSelectedDate(value);
-            } else if (Array.isArray(value) && value.length > 0) {
-            setSelectedDate(value[0]); // o maneja el rango como quieras
-            }
-        }}
-        tileContent={getTileContent}
-        tileClassName={getTileClassName}
-        showNeighboringMonth={false}
-        />
 
         </div>
       </div>
